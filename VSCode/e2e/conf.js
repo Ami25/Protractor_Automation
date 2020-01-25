@@ -81,6 +81,8 @@ exports.config={
     },
 
     suites:{
-        regression: ['tests/regression/sample.spec.js']
+        amol: ['tests/regression/sample.spec.js'],
+        xyz: ['tests/regression/sample.spec.js'],
+        abc: ['tests/regression/sample.spec.js']
     }
 }
