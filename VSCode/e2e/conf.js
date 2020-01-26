@@ -23,8 +23,8 @@ exports.config={
     {
         browser.manage().window().maximize();
         helper.switchToNonAngularPage();
-        browser.get(constantData.url); 
-        console.log('URL in Conf:',constantData.url)
+        //browser.get(constantData.url); 
+       // console.log('URL in Conf:',constantData.url)
        // browser.get(xcelToJson.testConfig.url); 
 
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
@@ -85,7 +85,6 @@ exports.config={
 
     suites:{
         amol: ['tests/regression/sample.spec.js'],
-        xyz: ['tests/regression/login.spec.js','tests/regression/logout.spec.js',],
-        abc: ['tests/regression/sample.spec.js']
+        xyz: ['tests/regression/login.spec.js','tests/regression/logout.spec.js']
     }
 }

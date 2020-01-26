@@ -11,6 +11,8 @@ describe('SAMPLE TEST', ()=>{
 
     beforeAll(function(){
         console.log('Inside Before All');
+        browser.get(xcelToJson.testConfig.url);
+        console.log('URL for Sample.spec:',xcelToJson.testConfig.url)
     });
 
     afterAll(function(){
@@ -90,7 +92,7 @@ describe('SAMPLE TEST', ()=>{
         await expect(headers).toEqual(['FEATURES','DOCS','RESOURCES','EVENTS','BLOG']);
     });
 
-    xit('testcase_DateHelper', async ()=>{
+    it('testcase_DateHelper', async ()=>{
         const currentDay= await dateHelper.getCurrentDay();
         console.log('CurrentDay: ',currentDay);
 
