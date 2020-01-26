@@ -68,6 +68,7 @@ var Helper = function(){
 
     this.switchToNonAngularPage = function(){
         browser.ignoreSynchronization = true;
+        browser.waitForAngularEnabled(false);
     };
 
     this.switchToAngularPage = function(){
@@ -77,6 +78,7 @@ var Helper = function(){
     this.browserClose = async function(){
         return browser.close();
     }
+
 
 
 }

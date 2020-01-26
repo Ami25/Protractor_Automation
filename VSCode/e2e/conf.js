@@ -1,7 +1,9 @@
-var xcelToJson= require('./xcelToJson');
+var xcelToJson= require('../e2e/testdata/xcelToJson');
 var jasmineReporters= require('jasmine-reporters');
 var HTMLReport= require('protractor-html-reporter-2');
 var fs= require('fs-extra');
+var constantData= require('../e2e/testdata/constantData');
+var helper = require('../e2e/helper/browserHelper');
 
 exports.config={
     directConnect : true,
@@ -20,9 +22,10 @@ exports.config={
     onPrepare: function()
     {
         browser.manage().window().maximize();
-       // browser.get('https://angular.io/'); 
-        console.log('URL in Conf:',xcelToJson.testConfig.url)
-        browser.get(xcelToJson.testConfig.url); 
+        helper.switchToNonAngularPage();
+        browser.get(constantData.url); 
+        console.log('URL in Conf:',constantData.url)
+       // browser.get(xcelToJson.testConfig.url); 
 
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
             cosolidateAll: true,
@@ -82,7 +85,7 @@ exports.config={
 
     suites:{
         amol: ['tests/regression/sample.spec.js'],
-        xyz: ['tests/regression/sample.spec.js'],
+        xyz: ['tests/regression/login.spec.js','tests/regression/logout.spec.js',],
         abc: ['tests/regression/sample.spec.js']
     }
 }

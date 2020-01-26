@@ -56,4 +56,4 @@ var dateHelper=function(){
 
 }
 
-module.exports=new dateHelper();
+module.exports=new dateHelper(); 

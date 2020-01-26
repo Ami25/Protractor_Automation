@@ -1,7 +1,9 @@
-var xcelToJson= require('../../xcelToJson'); 
+var xcelToJson= require('../../testdata/xcelToJson'); 
+var excelData= require('../../testdata/excelData'); 
 var helper= require('../../helper/browserHelper');
 var dateHelper= require('../../helper/dateHelper');
 var samplePO= require('../../pages/sample.po');
+var constantData= require('../../testdata/constantData'); 
 
 describe('SAMPLE TEST', ()=>{
 
@@ -18,13 +20,35 @@ describe('SAMPLE TEST', ()=>{
     });
 
     beforeEach(function(){
-	
+        console.log('Inside Before Each');
+        browser.ignoreSynchronization = true;
     });
     
      
     afterEach(function(){
-    
+        console.log('Inside After Each');
+        browser.manage().logs().get('browser').then(function (browserLog) {
+            //expect(browserLog.length).toEqual(0);
+            if (browserLog.length) {
+                //console.error('log: ' + JSON.stringify(browserLog));
+            }
+        });
     }); 
+
+    it('testcase_ExcelData', async ()=>{
+       // console.log('sheetName',constantData.sheetName + " FilePath", constantData.filePath)
+       var flag=false;
+        var testdata = excelData.readData(constantData.sheetName, constantData.filePath);
+        testdata.forEach(function (data) {
+            console.log('From Excel: ', data.ExecutionFlag);
+            console.log('From Excel: ', data.TestcaseID);
+            flag=true;
+            });
+        console.log('From testcase_ExcelData: ',testdata);
+
+        await expect(flag).toBe(true);
+    });
+    
 
     if(xcelToJson.executionFlag.testcase1 === "Y")
     {
@@ -37,7 +61,7 @@ describe('SAMPLE TEST', ()=>{
         });
     }
 
-    if(xcelToJson.executionFlag.testcase2 === "N")
+    if(xcelToJson.executionFlag.testcase2 === "Y")
     {
         xit('testcase_withErr', async ()=>{
 
@@ -66,7 +90,7 @@ describe('SAMPLE TEST', ()=>{
         await expect(headers).toEqual(['FEATURES','DOCS','RESOURCES','EVENTS','BLOG']);
     });
 
-    it('testcase_DateHelper', async ()=>{
+    xit('testcase_DateHelper', async ()=>{
         const currentDay= await dateHelper.getCurrentDay();
         console.log('CurrentDay: ',currentDay);
 

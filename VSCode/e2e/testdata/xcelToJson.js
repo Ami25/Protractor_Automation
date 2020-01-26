@@ -4,7 +4,7 @@ var fs= require('fs-extra');
 const xcelToJson=require('convert-excel-to-json');
 
 const result= xcelToJson({
-    source: fs.readFileSync('./excel.xlsx'),
+    source: fs.readFileSync('../e2e/testdata/excel.xlsx'),
     header:{
         rows:1 //this row is not include in result 
     }
@@ -21,7 +21,7 @@ var dataRequired = function (){
     this.executionFlag={
         testcase1: result.regression[0].B,  //here regression is a sheet name of excelsheet
         testcase2: result.regression[1].B
-    }
+    };
 }
 
 
