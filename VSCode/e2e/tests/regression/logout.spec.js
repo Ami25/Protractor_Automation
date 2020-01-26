@@ -16,12 +16,6 @@ describe('Home Page Test', () => {
         browser.get(constantData.url);
     });
 
-    afterAll(function () {
-        console.log('Inside After All');
-        browser.manage().deleteAllCookies()
-        helper.browserClose();
-    });
-
     beforeEach(function () {
         console.log('Inside Before Each');
         //browser.ignoreSynchronization = true;
@@ -45,6 +39,12 @@ describe('Home Page Test', () => {
         await expect(res).toBe(true);
         //await expect(login.signIn).isPresent();
         console.log('SignOut validation Successfully');
+    });
+
+    afterAll(function () {
+        console.log('Inside After All');
+        browser.manage().deleteAllCookies();
+        //helper.browserClose();
     });
 
 });

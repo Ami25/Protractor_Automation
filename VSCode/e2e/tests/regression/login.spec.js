@@ -12,11 +12,7 @@ describe('SignIn Page Test', () => {
     beforeAll(function () {
         console.log('Inside Before All');
         browser.get(constantData.url); 
-        console.log('URL in login.spec:',constantData.url)
-    });
-
-    afterAll(function () {
-        console.log('Inside After All');
+        console.log('URL in Conf:',constantData.url)
     });
 
     beforeEach(function () {
@@ -52,4 +48,7 @@ describe('SignIn Page Test', () => {
         console.log('SignIn validation Successfully');
     });
 
+    afterAll(function () {
+        console.log('Inside After All');
+    });
 });
