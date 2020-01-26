@@ -7,7 +7,7 @@ var constantData = require('../../testdata/constantData');
 
 describe('SignIn Page Test', () => {
 
-    console.log('Inside Login Page Test');
+    console.log('Inside SignIn Page Test');
 
     beforeAll(function () {
         console.log('Inside Before All');
