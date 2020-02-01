@@ -32,13 +32,13 @@ describe('Home Page Test', () => {
         });
     });
 
-    it('SignOut validation', async () => {
+    it('LogOut validation', async () => {
         helper.switchToNonAngularPage();
-        var res = logout.signOutMethod();
+        var res = logout.logOutMethod();
 
         await expect(res).toBe(true);
         //await expect(login.signIn).isPresent();
-        console.log('SignOut validation Successfully');
+        console.log('LogOut validation Successfully');
     });
 
     afterAll(function () {

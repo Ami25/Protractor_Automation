@@ -5,7 +5,7 @@ var dateHelper = require('../../helper/dateHelper');
 var login = require('../../pages/login.po');
 var constantData = require('../../testdata/constantData');
 
-describe('SignIn Page Test', () => {
+describe('LogIn Page Test', () => {
 
     console.log('Inside SignIn Page Test');
 
@@ -31,21 +31,21 @@ describe('SignIn Page Test', () => {
         });
     });
 
-    it('SignIn button should present in UI', async () => {
+    it('LogIn button should present in UI', async () => {
         helper.switchToNonAngularPage();
-        var res = login.clickSignIn();
+        var res = login.clickLogIn();
         await expect(res).toBe(true);
-        console.log('SignIn button is present in UI')
+        console.log('LogIn button is present in UI')
     });
 
-    it('SignIn validation', async () => {
+    it('LogIn validation', async () => {
         helper.switchToNonAngularPage();
-        var res1 = login.setSignInDetails(constantData.username, constantData.password);
+        var res1 = login.setLogInDetails(constantData.username, constantData.password);
         var res2 = login.clickSubmit();
        
         await expect(res1).toBe(true);
         await expect(res2).toBe(true);
-        console.log('SignIn validation Successfully');
+        console.log('LogIn validation Successfully');
     });
 
     afterAll(function () {

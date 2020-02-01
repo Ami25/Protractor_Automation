@@ -1,8 +1,8 @@
 class constantData{
 
-    url= 'https://github.com/';
-    username='amitotare@gmail.com';
-    password='Ganesha@25';
+    url= 'https://www.codecademy.com/';
+    username='sudeshna.0807@gmail.com';
+    password='Sudeshna87@';
 
     
     filePath = '../e2e/testdata/excel.xlsx';

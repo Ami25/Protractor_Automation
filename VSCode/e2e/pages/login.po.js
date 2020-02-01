@@ -2,16 +2,17 @@ var logout=require('../pages/logout.po');
 
 var loginPage = function () {
     'use strict';
-    this.signIn =$('a.HeaderMenu-link.no-underline.mr-3');
-    this.userName = $('#login_field');
-    this.password = $('#password');
-    this.submitButton = $('#login form div.auth-form-body.mt-3 input.btn.btn-primary.btn-block');
+    this.logIn =$('#sign-in > a');
+    this.userName = $('#user_login');
+    this.password = $('#login__user_password');
+    this.submitButton = $('#user_submit');
+    this.back= $('div.react-root main div a');
     //******************** functions *******************
-    this.clickSignIn = function () {
-        this.signIn.click();
+    this.clickLogIn = function () {
+        this.logIn.click();
         return true;
     };
-    this.setSignInDetails = function (username, password) {
+    this.setLogInDetails = function (username, password) {
         this.userName.clear();
         this.userName.sendKeys(username);
         this.password.clear();
@@ -20,6 +21,10 @@ var loginPage = function () {
     };
     this.clickSubmit = function () {
         this.submitButton.click();
+      /*  if(login.back.exists())
+        {
+            login.back.click();
+        } */
         return true;
     };
 };
